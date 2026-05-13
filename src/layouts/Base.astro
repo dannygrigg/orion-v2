@@ -1,0 +1,269 @@
+---
+import '../styles/global.css';
+import site from '../content/site.json';
+
+const { title, description, navTheme = 'dark' } = Astro.props;
+const fullTitle = title ? `${title} — ${site.site.fullName}` : `${site.site.fullName} — ${site.site.tagline}`;
+const desc = description || site.site.description;
+const currentPath = Astro.url.pathname;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={desc} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={desc} />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class:list={["o-nav", navTheme === 'dark' ? 'on-dark' : 'on-light']}>
+  <div class="nav-l">
+    <a href="/" class="logo">Orion<em>.</em></a>
+    <span class="nav-status">
+      <span class="pulse"></span>
+      {site.global.siteLiveCount}
+    </span>
+  </div>
+  <ul class="nav-links">
+    {site.nav.links.map(link => (
+      <li><a href={link.href} class={currentPath === link.href ? 'active' : ''}>{link.label}</a></li>
+    ))}
+  </ul>
+  <a href={site.nav.cta.href} class="nav-cta">{site.nav.cta.label}</a>
+  <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  {site.nav.links.map(link => (
+    <a href={link.href}>{link.label}</a>
+  ))}
+  <a href={site.nav.cta.href} class="nav-mobile-cta">{site.nav.cta.label}</a>
+</div>
+
+<main>
+  <slot />
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="o-footer">
+  <div class="o-footer-top">
+    <div class="o-footer-brand">
+      <div class="logo">Orion<em>.</em></div>
+      <p class="o-footer-tagline">{site.footer.tagline}</p>
+      <p class="o-footer-contact">
+        <a href={site.global.phoneLink}>{site.global.phone}</a><br/>
+        <a href={site.global.emailLink}>{site.global.email}</a><br/>
+        <span>{site.global.address}</span>
+      </p>
+    </div>
+    <div class="o-footer-cols">
+      {site.footer.columns.map(col => (
+        <div>
+          <div class="o-footer-col-title">{col.title}</div>
+          <ul>
+            {col.links.map(link => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="o-footer-bot">
+    <span>{site.footer.legal}</span>
+  </div>
+</footer>
+
+<style>
+  /* ── NAV ── */
+  .o-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 14px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(20px);
+    border-bottom: 0.5px solid var(--line-dark);
+  }
+  .o-nav.on-dark { background: rgba(10, 16, 24, 0.86); color: var(--text-dark); }
+  .o-nav.on-light { background: rgba(251, 250, 247, 0.92); color: var(--ink); border-bottom-color: var(--line); }
+  .nav-l { display: flex; align-items: center; gap: 32px; }
+  .logo { font-family: var(--f-display); font-size: 22px; letter-spacing: -0.01em; }
+  .logo em { color: var(--cyan); }
+  .nav-status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 0.5px solid var(--line-dark);
+  }
+  .o-nav.on-light .nav-status { border-color: var(--line); color: var(--mid); }
+  .o-nav.on-dark .nav-status { color: var(--text-dark-soft); }
+  .pulse {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 50% { opacity: 0.5; } }
+  .nav-links {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+    font-size: 13px;
+  }
+  .o-nav.on-dark .nav-links a { color: var(--text-dark-mid); }
+  .o-nav.on-dark .nav-links a:hover, .o-nav.on-dark .nav-links a.active { color: var(--text-dark); }
+  .o-nav.on-light .nav-links a { color: var(--mid); }
+  .o-nav.on-light .nav-links a:hover, .o-nav.on-light .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .o-nav.on-dark .nav-cta { background: var(--text-dark); color: var(--dark); }
+  .o-nav.on-light .nav-cta { background: var(--ink); color: var(--light); }
+  .nav-burger {
+    display: none;
+    background: transparent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+  .nav-burger span {
+    display: block;
+    height: 1.5px;
+    width: 22px;
+    background: currentColor;
+    margin: 0 auto;
+  }
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    padding: 16px 22px 24px;
+    border-bottom: 0.5px solid var(--line);
+    background: var(--light);
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    padding: 12px 0;
+    border-bottom: 0.5px solid var(--line);
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .nav-mobile a:last-child { border-bottom: none; }
+  .nav-mobile-cta {
+    margin-top: 12px;
+    background: var(--ink);
+    color: var(--light) !important;
+    text-align: center;
+    border-radius: 999px;
+    border-bottom: none !important;
+  }
+
+  /* ── FOOTER ── */
+  .o-footer {
+    background: var(--darkest);
+    color: var(--text-dark);
+    padding: 80px 36px 28px;
+  }
+  .o-footer-top {
+    display: grid;
+    grid-template-columns: 1.4fr 2fr;
+    gap: 80px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-bottom: 56px;
+    border-bottom: 0.5px solid var(--line-dark);
+  }
+  .o-footer-brand .logo { font-size: 28px; }
+  .o-footer-tagline {
+    font-family: var(--f-display);
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--text-dark);
+    margin: 14px 0 28px;
+    font-style: italic;
+  }
+  .o-footer-contact {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-dark-mid);
+    font-weight: 300;
+  }
+  .o-footer-contact a { color: var(--text-dark); }
+  .o-footer-contact a:hover { color: var(--cyan); }
+  .o-footer-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .o-footer-col-title {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dark-soft);
+    margin-bottom: 18px;
+  }
+  .o-footer-cols ul { list-style: none; }
+  .o-footer-cols li { padding: 6px 0; font-size: 14px; }
+  .o-footer-cols a { color: var(--text-dark-mid); }
+  .o-footer-cols a:hover { color: var(--cyan); }
+  .o-footer-bot {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-top: 28px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--text-dark-soft);
+    text-align: center;
+  }
+
+  @media (max-width: 920px) {
+    .nav-links, .nav-cta, .nav-status { display: none; }
+    .nav-burger { display: flex; }
+    .o-nav { padding: 14px 22px; }
+    .o-footer { padding: 60px 22px 22px; }
+    .o-footer-top { grid-template-columns: 1fr; gap: 48px; padding-bottom: 36px; }
+    .o-footer-cols { grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .o-footer-tagline { font-size: 22px; }
+  }
+  @media (max-width: 560px) {
+    .o-footer-cols { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const burger = document.getElementById('navBurger');
+  const mobile = document.getElementById('navMobile');
+  if (burger && mobile) {
+    burger.addEventListener('click', () => mobile.classList.toggle('open'));
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+{
+  "site": {
+    "name": "Orion",
+    "fullName": "Orion MIS",
+    "tagline": "Calm out of chaos.",
+    "description": "Premium warehouse automation, engineered and built in the UK.",
+    "logoUrl": "https://www.orionmis.co.uk/front/images/comp/logo.png",
+    "url": "https://uksortation.netlify.app"
+  },
+  "global": {
+    "phone": "+44 333 335 5269",
+    "phoneLink": "tel:+443333355269",
+    "email": "info@orionmis.co.uk",
+    "emailLink": "mailto:info@orionmis.co.uk",
+    "address": "Number 1 Fontwell Avenue, Fontwell, Chichester, PO20 3RU",
+    "siteLiveCount": "3 Helix sites · live",
+    "social": {
+      "linkedin": "https://www.linkedin.com/company/orion-mis-ltd/",
+      "youtube": "https://www.youtube.com/@orionautomation1"
+    }
+  },
+  "nav": {
+    "links": [
+      { "label": "Helix", "href": "/helix" },
+      { "label": "Solutions", "href": "/solutions" },
+      { "label": "Case studies", "href": "/case-studies" },
+      { "label": "About", "href": "/about" },
+      { "label": "Contact", "href": "/contact" }
+    ],
+    "cta": { "label": "Book a site visit", "href": "/contact" }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "The chaos is the cost. We engineer it out.",
+      "h1Line1": "Move from CAPEX",
+      "h1Line2": "to OPEX.",
+      "h1Line3": "And from chaos to calm.",
+      "lead": "Helix is a modular sortation system that runs inside the building you already have. No capital outlay. Flexible finance from as little as £1,000 a month. Designed, built, installed and supported in the UK.",
+      "primaryCta": { "label": "See the ROI", "href": "/contact" },
+      "secondaryCta": { "label": "Book a site visit", "href": "/contact" },
+      "visualLabel": "HELIX · LIVE",
+      "visualStatus": "● ON LINE",
+      "visualMetricLabel": "CURRENT THROUGHPUT",
+      "visualMetric": "14,820",
+      "visualMetricUnit": "/ HR",
+      "visualSubLabel": "SLA 98.6%",
+      "visualSubTrend": "▲ 2.1pp"
+    },
+    "stats": [
+      { "number": "20,000", "unit": "+", "label": "Parcels / hour", "sub": "peak throughput" },
+      { "number": "£1,000", "unit": "", "label": "From, per month", "sub": "flexible finance, 60 months" },
+      { "number": "15 min", "unit": "", "label": "Mean time to repair", "sub": "on critical components" },
+      { "number": "24 mo", "unit": "", "label": "Standard warranty", "sub": "not a paid extra" }
+    ],
+    "thesis": {
+      "eyebrow": "01 · The thesis",
+      "h2Lead": "Automation that ",
+      "h2Em": "pays for itself.",
+      "lead": "Most warehouse automation pitches start with the capital. We don't. We start with the labour line you're already paying.",
+      "body": "A typical mid-volume operation runs the equivalent of 8–12 Helix sorters' worth of manual sortation. The agency rates, the overtime, the seasonal scramble — that's where your money goes today. Helix takes most of it back, and the monthly finance comes out of money you're already spending.\n\nIt doesn't cost you money. It saves you money. The numbers are why operators move.",
+      "cards": [
+        { "num": "01", "title": "Operating expense, not capital", "desc": "Flexible finance from £1,000 a month on a 60-month agreement. No CAPEX line. Subject to spec and credit." },
+        { "num": "02", "title": "Pays for itself by Q1", "desc": "Most sites cover the monthly cost through reduced agency labour inside the first quarter of operation." },
+        { "num": "03", "title": "Under one roof, in the UK", "desc": "Six engineering disciplines. 4-week typical install. UK-engineered, UK-supported, UK-accountable." }
+      ]
+    },
+    "operation": {
+      "eyebrow": "02 · Helix in operation",
+      "h2Lead": "A sorter that ",
+      "h2Em": "reports to you,",
+      "h2Trail": " live.",
+      "lead": "Every Helix system ships with the same live operational view. Throughput, dispatch SLA, system health, predictive alerts. Visible from any browser, no integration project required. This is what your warehouse looks like running on Helix today.",
+      "panelTitle": "Helix Control · APC East Midlands",
+      "panelSub": "Shift 2 · 4h 12m",
+      "kpis": [
+        { "label": "Throughput", "value": "14,820", "unit": "/HR", "trend": "▲ 12.4% vs shift avg" },
+        { "label": "Dispatch SLA", "value": "98.6%", "trend": "▲ 2.1pp" },
+        { "label": "System health", "value": "OK", "trend": "all subsystems", "ok": true }
+      ],
+      "events": [
+        { "time": "14:23", "tag": "PREDICT", "kind": "info", "msg": "Dispatch congestion forecast in 18 min", "sub": "Auto-route ready — operator confirmation pending" },
+        { "time": "14:14", "tag": "FLOW", "kind": "ok", "msg": "Lane 3 rebalanced", "sub": "Throughput +8.2% post-adjustment" },
+        { "time": "13:58", "tag": "LABOUR", "kind": "warn", "msg": "Pick zone B understaffed", "sub": "2 operators recommended for peak window" },
+        { "time": "13:42", "tag": "SYS", "kind": "ok", "msg": "Shift 2 start · 4 lanes online", "sub": "Module health: all green" }
+      ],
+      "footLead": "Built in. Not bolted on.",
+      "footBody": "The same view is included with every Helix system from day one — no separate licence, no integration cost. This is the foundation; an intelligence layer is in development.",
+      "footCta": { "label": "See a live Helix", "href": "/contact" }
+    },
+    "cases": {
+      "eyebrow": "03 · Proof",
+      "h2Lead": "Real operations.",
+      "h2Em": "Real numbers.",
+      "indexCta": { "label": "View all case studies", "href": "/case-studies" },
+      "items": [
+        {
+          "featured": true,
+          "tag": "Featured",
+          "meta": "APC Overnight · Parcel sortation",
+          "title": "Sorting 18,400 parcels per hour without extending the building.",
+          "quote": "Helix paid for itself in agency cost reductions inside the first quarter. We're now planning the second installation.",
+          "stats": [
+            { "value": "18,400", "label": "parcels / hour" },
+            { "value": "−38%", "label": "agency cost" },
+            { "value": "11 wk", "label": "to break-even" }
+          ]
+        },
+        {
+          "tag": "Live",
+          "meta": "Chase Freight · Unit handling",
+          "title": "Two shifts collapsed into one with the same headcount.",
+          "stats": [
+            { "value": "2 → 1", "label": "shifts / day" },
+            { "value": "+22%", "label": "SLA" }
+          ]
+        },
+        {
+          "tag": "Live",
+          "meta": "Tate & Lyle · Pallet & heavy",
+          "title": "Pallet handling rebuilt around a 4-week install window.",
+          "stats": [
+            { "value": "4 wk", "label": "install" },
+            { "value": "0", "label": "days lost" }
+          ]
+        }
+      ]
+    },
+    "roof": {
+      "eyebrow": "04 · Capability",
+      "h2Lead": "Six disciplines.",
+      "h2Em": "One roof.",
+      "lead1": "Most automation suppliers hold one or two of these capabilities. Orion connects all six into a single delivery — mechanical to software, factory floor to control room.",
+      "lead2": "It's why a Helix system can be quoted, built, installed and supported by the same company. Shorter lines, faster decisions, one accountable team.",
+      "disciplines": [
+        { "num": "01 / ME", "title": "Mechanical engineering", "desc": "Machines designed around real warehouse constraints." },
+        { "num": "02 / EE", "title": "Electrical engineering", "desc": "Panels, drives, safety, site-ready delivery." },
+        { "num": "03 / PLC", "title": "PLC & controls", "desc": "The control layer that makes the system executable." },
+        { "num": "04 / WCS", "title": "WCS software", "desc": "Routing, diagnostics, SCADA, system behaviour." },
+        { "num": "05 / SW", "title": "Software engineering", "desc": "The reporting layer your operators see each shift." },
+        { "num": "06 / OPS", "title": "Operational know-how", "desc": "Built by people who know peak, downtime and 3am." }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Next step",
+      "h2Line1": "Two hours.",
+      "h2Em": "One walk-through.",
+      "h2Line2": "One business case.",
+      "lead": "A short site visit from one of our engineers. We measure your floor, study your throughput pattern, and send a costed proposal and monthly finance quote within the week. No commitment, no obligation.",
+      "primaryCta": { "label": "Book a site visit", "href": "/contact" },
+      "secondaryCta": { "label": "Try the ROI calculator", "href": "/contact" }
+    }
+  },
+  "footer": {
+    "tagline": "Calm, engineered.",
+    "columns": [
+      {
+        "title": "Product",
+        "links": [
+          { "label": "Helix sortation", "href": "/helix" },
+          { "label": "Solutions", "href": "/solutions" },
+          { "label": "ROI calculator", "href": "/contact" }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          { "label": "About", "href": "/about" },
+          { "label": "Case studies", "href": "/case-studies" },
+          { "label": "Contact", "href": "/contact" }
+        ]
+      },
+      {
+        "title": "Connect",
+        "links": [
+          { "label": "LinkedIn", "href": "https://www.linkedin.com/company/orion-mis-ltd/" },
+          { "label": "YouTube", "href": "https://www.youtube.com/@orionautomation1" }
+        ]
+      }
+    ],
+    "legal": "© 2026 Orion MIS Ltd · Registered in England · Number 1 Fontwell Avenue, Fontwell, Chichester, PO20 3RU"
+  }
+}

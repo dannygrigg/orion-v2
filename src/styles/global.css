@@ -1,0 +1,101 @@
+/* ── Orion design tokens ────────────────────────────── */
+:root {
+  /* Palette */
+  --dark: #0A1018;
+  --darker: #050B14;
+  --darkest: #02050A;
+  --light: #FBFAF7;
+  --paper: #F3F1EC;
+  --ink: #1d1d1f;
+  --mid: #6e6e73;
+  --line: #d2d2d7;
+  --line-dark: rgba(255, 255, 255, 0.08);
+  --line-bright: rgba(0, 213, 255, 0.22);
+  --text-dark: #F7FAFF;
+  --text-dark-mid: rgba(247, 250, 255, 0.7);
+  --text-dark-soft: rgba(247, 250, 255, 0.45);
+  --blue: #1E90FF;
+  --cyan: #00D5FF;
+  --green: #32D583;
+  --amber: #FDB022;
+
+  /* Type */
+  --f-display: 'DM Serif Display', Georgia, serif;
+  --f-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --pad: 36px;
+  --pad-sm: 24px;
+  --maxw: 1280px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--f-body);
+  background: var(--light);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+em {
+  font-style: italic;
+}
+
+/* ── Layout helpers ────────────────────────────────── */
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 22px;
+}
+
+.section-eyebrow.on-dark { color: var(--text-dark-soft); }
+
+/* ── Buttons ─────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 0;
+  transition: transform 0.1s, opacity 0.15s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-primary-dark { background: var(--text-dark); color: var(--dark); }
+.btn-primary-light { background: var(--ink); color: var(--light); }
+.btn-secondary-dark { border: 0.5px solid rgba(255, 255, 255, 0.22); color: var(--text-dark); background: transparent; }
+.btn-secondary-light { border: 0.5px solid var(--line); color: var(--ink); background: transparent; }
+
+/* ── Mobile ──────────────────────────────────────────── */
+@media (max-width: 920px) {
+  :root { --pad: 22px; }
+  h1 { font-size: 44px !important; }
+  h2 { font-size: 36px !important; }
+}
