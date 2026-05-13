@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://uksortation.netlify.app',
-  // Vite config so site.json imports cleanly
+  site: 'https://dannygrigg.github.io',
+  base: '/orion-v2',
   vite: {
     resolve: {
       alias: {
